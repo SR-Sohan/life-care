@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Client\AboutController;
+use App\Http\Controllers\Client\AppointmentController;
+use App\Http\Controllers\Client\ContactController;
+use App\Http\Controllers\Client\DoctorController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -7,6 +11,10 @@ use Illuminate\Support\Facades\Route;
 
 // Client Page Route
 Route::get("/",[HomeController::class,"page"]);
+Route::get("/doctor", [DoctorController::class,"page"]);
+Route::get("/appointment", [AppointmentController::class,"page"]);
+Route::get("/about", [AboutController::class, "page"]);
+Route::get("/contact", [ContactController::class,"page"]);
 
 
 Route::get('/dashboard', function () {

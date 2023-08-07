@@ -46,11 +46,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="index.html" class="nav-item nav-link">Find Doctor</a>
-                    <a href="about.html" class="nav-item nav-link">Appointment</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="{{url("/")}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{url("/doctor")}}" class="nav-item nav-link">Find Doctor</a>
+                    <a href="{{url("/appointment")}}" class="nav-item nav-link">Appointment</a>
+                    <a href="{{url("/about")}}" class="nav-item nav-link">About</a>
+                    <a href="{{url("/contact")}}" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>
