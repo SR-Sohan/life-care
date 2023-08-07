@@ -22,8 +22,6 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->boolean('login_check')->default(false);
             $table->timestamp('last_login_at')->nullable();
-            $table->unsignedBigInteger('branch_id');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
