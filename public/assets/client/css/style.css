@@ -64,7 +64,9 @@
     outline: none;
     transition: .5s;
 }
-
+.logo{
+    height: 100px;
+}
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primary);
