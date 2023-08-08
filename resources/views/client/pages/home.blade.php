@@ -25,7 +25,7 @@
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100 rounded" src="{{asset("assets/client/img/about.jpg")}}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -35,30 +35,25 @@
                     </div>
                     <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
                     <div class="row g-3 pt-3">
-                        <div class="col-sm-3 col-6">
+                        <div class="col-sm-4 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
                                 <h6 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h6>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-6">
+                        <div class="col-sm-4 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
                                 <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-6">
+                        <div class="col-sm-4 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
                                 <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
-                                <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -111,18 +106,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-ambulance text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Ambulance Service</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+              
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                         <div class="service-icon mb-4">
@@ -317,7 +301,7 @@
                 <div class="team-item">
                     <div class="row g-0 bg-light rounded overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/team-1.jpg" style="object-fit: cover;">
+                            <img class="img-fluid h-100" src="{{asset("assets/client/img/team-1.jpg")}}" style="object-fit: cover;">
                         </div>
                         <div class="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div class="mt-auto p-4">
@@ -336,7 +320,7 @@
                 <div class="team-item">
                     <div class="row g-0 bg-light rounded overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/team-2.jpg" style="object-fit: cover;">
+                            <img class="img-fluid h-100" src="{{asset("assets/client/img/team-2.jpg")}}" style="object-fit: cover;">
                         </div>
                         <div class="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div class="mt-auto p-4">
@@ -355,7 +339,7 @@
                 <div class="team-item">
                     <div class="row g-0 bg-light rounded overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/team-3.jpg" style="object-fit: cover;">
+                            <img class="img-fluid h-100" src="{{asset("assets/client/img/team-3.jpg")}}" style="object-fit: cover;">
                         </div>
                         <div class="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div class="mt-auto p-4">
@@ -466,7 +450,7 @@
             <div class="row g-5">
                 <div class="col-xl-4 col-lg-6">
                     <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
+                        <img class="img-fluid w-100" src="{{asset("assets/client/img/blog-1.jpg")}}" alt="">
                         <div class="p-4">
                             <a class="h3 d-block mb-3" href="">Dolor clita vero elitr sea stet dolor justo  diam</a>
                             <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
@@ -474,7 +458,7 @@
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="25" height="25" alt="">
+                                <img class="rounded-circle me-2" src="{{asset("assets/client/img/user.jpg")}}" width="25" height="25" alt="">
                                 <small>John Doe</small>
                             </div>
                             <div class="d-flex align-items-center">
@@ -486,7 +470,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-6">
                     <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="img/blog-2.jpg" alt="">
+                        <img class="img-fluid w-100" src="{{asset("assets/client/img/blog-2.jpg")}}" alt="">
                         <div class="p-4">
                             <a class="h3 d-block mb-3" href="">Dolor clita vero elitr sea stet dolor justo  diam</a>
                             <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
@@ -494,7 +478,7 @@
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="25" height="25" alt="">
+                                <img class="rounded-circle me-2" src="{{asset("assets/client/img/user.jpg")}}" width="25" height="25" alt="">
                                 <small>John Doe</small>
                             </div>
                             <div class="d-flex align-items-center">
@@ -506,7 +490,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-6">
                     <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="img/blog-3.jpg" alt="">
+                        <img class="img-fluid w-100" src="{{asset("assets/client/img/blog-3.jpg")}}" alt="">
                         <div class="p-4">
                             <a class="h3 d-block mb-3" href="">Dolor clita vero elitr sea stet dolor justo  diam</a>
                             <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
@@ -514,7 +498,7 @@
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="25" height="25" alt="">
+                                <img class="rounded-circle me-2" src="{{asset("assets/client/img/user.jpg")}}" width="25" height="25" alt="">
                                 <small>John Doe</small>
                             </div>
                             <div class="d-flex align-items-center">
