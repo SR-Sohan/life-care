@@ -17,6 +17,11 @@ Route::get("/about", [AboutController::class, "page"]);
 Route::get("/contact", [ContactController::class,"page"]);
 
 
+Route::get("/admin",function(){
+    return view("admin.pages.dashboard");
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
