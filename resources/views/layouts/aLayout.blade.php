@@ -9,6 +9,7 @@
   data-template="vertical-menu-template"
 >
   <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -48,6 +49,8 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/admin') }}/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -55,6 +58,16 @@
     <script src="{{ asset('assets/admin') }}/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/admin') }}/js/config.js"></script>
+    <script>
+      $(document).ready(function () {
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });  
+      });
+      
+  </script>
   </head>
 
   <body>
@@ -77,7 +90,11 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+            {{-- loading  --}}
+            @include('admin.components.loading')
+            {{-- loading  --}}
+
+            <div id="admin_content" class="container-xxl flex-grow-1 container-p-y">
                 @yield('acontent')
             </div>
             <!-- / Content -->

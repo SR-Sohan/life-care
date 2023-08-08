@@ -24,6 +24,40 @@
         </a>
       </li>
 
+      
+
+      <li class="menu-item">
+        <a href="{{url("dashboard/branch")}}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Branches">Branches</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/user")}}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Users">Users</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/department")}}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Departments">Departments</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/test")}}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Tests">Tests</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/doctor")}}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Doctors">Doctors</div>
+        </a>
+      </li>
+
+
       <!-- Menu Item -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -32,16 +66,8 @@
         </a>
 
         <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="layouts-collapsed-menu.html" class="menu-link">
-              <div data-i18n="Branches">Branches</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="layouts-collapsed-menu.html" class="menu-link">
-              <div data-i18n="Users">Users</div>
-            </a>
-          </li>
+         
+          
           <li class="menu-item">
             <a href="layouts-collapsed-menu.html" class="menu-link">
               <div data-i18n="Doctors">Doctors</div>

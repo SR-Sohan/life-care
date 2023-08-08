@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\TestController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\AppointmentController;
 use App\Http\Controllers\Client\ContactController;
-use App\Http\Controllers\Client\DoctorController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,19 +22,26 @@ Route::get("/about", [AboutController::class, "page"]);
 Route::get("/contact", [ContactController::class,"page"]);
 
 
-Route::get("/admin",function(){
-    return view("admin.pages.dashboard");
-});
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(function () {
+
+    //Dashboard Page Routes
+    Route::get("",[DashboardController::class,"page"]);
+    Route::get("branch",[BranchController::class,"page"]);
+    Route::get("user",[UserController::class,"page"]);
+    Route::get("doctor",[DoctorController::class,"page"]);
+    Route::get("department",[DepartmentController::class,"page"]);
+    Route::get("test",[TestController::class,"page"]);
+
+
+    // Dashboard Commericial Routes
+    Route::get("branches",[BranchController::class,"index"]);
+    Route::post("upload-branch",[BranchController::class,"create"]);
+
 });
 
 require __DIR__.'/auth.php';

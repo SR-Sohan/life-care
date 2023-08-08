@@ -113,3 +113,30 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+
+/* icon  */
+
+.table_img{
+  width: 150px;
+  height: 50px;
+}
+.table_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.table_icon p{
+  margin:  0 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.table_icon p:nth-child(1){
+  color: rgb(7, 174, 239);
+}
+.table_icon p:nth-child(2){
+  color: burlywood;
+}
+.table_icon p:nth-child(3){
+  color: mediumorchid
+}
