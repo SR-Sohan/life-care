@@ -45,6 +45,9 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("departments",[DepartmentController::class,"index"]);
     Route::post("upload-department",[DepartmentController::class,"create"]);
 
+    Route::get("doctors",[DoctorController::class,"index"]);
+    Route::post("upload-doctor",[DoctorController::class,"create"]);
+
 });
 
 require __DIR__.'/auth.php';

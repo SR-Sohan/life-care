@@ -14,4 +14,8 @@ class Branch extends Model
         'phone',
         'image',
     ];
+
+    public function doctors(){
+        return $this->hasMany(Doctor::class);
+    }
 }
