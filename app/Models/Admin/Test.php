@@ -15,7 +15,8 @@ class Test extends Model
         
     ];
 
-    public function test(){
+    public function tests()
+    {
         return $this->hasMany(Test::class);
     }
 }

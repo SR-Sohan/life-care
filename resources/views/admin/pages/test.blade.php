@@ -83,14 +83,18 @@
 
             // Load Data
             function loadData(page){
+
                 $("#loading").removeClass("d-none");
                 $("#content_table").addClass("d-none");
+
                 $.ajax({
-                    url: '{{url("dashboard/test")}}',
+
+                    url: '{{url("dashboard/tests")}}',
                     method: 'GET',
                     data: { page: page },
                     dataType: 'json',
                     success: function(response) {
+
                         if(response.data){
                             console.log(response);
                             let html;
@@ -125,7 +129,7 @@
             //Add Function 
             $("#submit_btn").click(function(){
                 let name = $("#name").val();
-                let address = $("#price").val();
+                let price = $("#price").val();
                
 
                 if (name && price) {
