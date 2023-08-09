@@ -16,10 +16,15 @@
     </div>
     {{-- page heading end --}}
 
+    {{-- loading  --}}
+   
+    {{-- loading  --}}
+
     {{-- content list start  --}}
     <div class="content_list mt-5">
         <h2 class="text-center">Our Branches</h2>
-        <table  class="table table-primary table-striped">
+        @include('admin.components.loading')
+        <table  id="content_table"  class="table table-primary table-striped">
             <thead>
                 <tr>
                     <th>Sl.</th>
@@ -35,6 +40,8 @@
         </table>
     </div>
     {{-- content list end --}}
+
+    <div id="pagination-links"></div>
 
     {{-- form modal  --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,6 +84,8 @@
 
             // Load Data
             function loadData(page){
+                $("#loading").removeClass("d-none");
+                $("#content_table").addClass("d-none");
                 $.ajax({
                     url: '{{url("dashboard/branches")}}',
                     method: 'GET',
@@ -84,7 +93,7 @@
                     dataType: 'json',
                     success: function(response) {
                         if(response.data){
-
+                            console.log(response);
                             let html;
                             response.data.forEach((item,index) => {
                                 html    += `<tr>
@@ -102,6 +111,10 @@
                            });
 
                            $("#content_body").html(html)
+                           $('#pagination-links').empty().append($.parseHTML(response.links));
+                           document.querySelector("#content_table").classList.remove("d-none")
+                        document.querySelector("#loading").classList.add("d-none")
+                      
                         }
                     },
                     error: function(xhr) {
@@ -110,6 +123,7 @@
                 });
             }
             loadData(1);
+
             //Add Function 
             $("#submit_btn").click(function(){
                 let name = $("#name").val();
@@ -134,6 +148,7 @@
                         if(!response.error){
                             $('#exampleModal').modal('hide');
                             $("#form")[0].reset();
+                            loadData(1);
                             Swal.fire(
                             'Message!',
                             response.msg,

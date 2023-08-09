@@ -13,10 +13,12 @@ class BranchController extends Controller
     }
 
     public function index(Request $request){
+
         $branches = Branch::paginate(10); 
 
         return response()->json($branches);
     }
+    
     public function create(Request $request){
 
         $request->validate([

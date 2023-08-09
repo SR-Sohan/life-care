@@ -58,8 +58,11 @@
     <script src="{{ asset('assets/admin') }}/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/admin') }}/js/config.js"></script>
+    
     <script>
+        
       $(document).ready(function () {
+      
           $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -90,10 +93,6 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            {{-- loading  --}}
-            @include('admin.components.loading')
-            {{-- loading  --}}
-
             <div id="admin_content" class="container-xxl flex-grow-1 container-p-y">
                 @yield('acontent')
             </div>
@@ -119,6 +118,10 @@
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->
+    <script>
+      document.querySelector("#content_table").classList.add("d-none")
+      document.querySelector("#loading").classList.remove("d-none")
+    </script>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('assets/admin') }}/vendor/libs/jquery/jquery.js"></script>
     <script src="{{ asset('assets/admin') }}/vendor/libs/popper/popper.js"></script>
