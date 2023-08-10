@@ -56,7 +56,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="">
+              <form id="form">
                 <div class="mb-3">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control" >
@@ -145,7 +145,7 @@
                         processData: false,
                         contentType: false,
                         success: function (response) {
-                        if(!response.error){
+                        if(response){
                             $('#exampleModal').modal('hide');
                             $("#form")[0].reset();
                             loadData(1);
