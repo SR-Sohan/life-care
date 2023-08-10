@@ -53,6 +53,13 @@
       </li>
 
       <li class="menu-item">
+        <a href="{{url("dashboard/appointments")}}" class="menu-link">
+          <i class="fa-regular fa-handshake menu-icon"></i>
+          <div data-i18n="Appointments">Appointments</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
         <a href="{{url("dashboard/test")}}" class="menu-link">
           <i class="fa-solid fa-microscope menu-icon"></i>
           <div data-i18n="Tests">Tests</div>

@@ -168,7 +168,7 @@
 
 
 
-        })
+        });
 
     </script>
 @endsection
