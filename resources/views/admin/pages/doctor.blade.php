@@ -35,19 +35,6 @@
                 </tr>
             </thead>
             <tbody id="content_body">
-                <tr>
-                    <td>1</td>
-                    <td>Dr. Kamal</td>
-                    <td class="table_img"><img src="" alt=""></td>
-                    <td>Mirpur</td>
-                    <td>+8801700000000</td>
-                    <td>chest</td>
-                    <td class="d-flex table_icon">
-                        <p><i class="fa-solid fa-eye"></i></p>
-                        <p><i class="fa-solid fa-pen-to-square"></i></p>
-                        <p><i class="fa-solid fa-trash"></i></p>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>

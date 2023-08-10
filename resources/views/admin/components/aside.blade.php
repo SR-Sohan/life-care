@@ -28,40 +28,40 @@
 
       <li class="menu-item">
         <a href="{{url("dashboard/branch")}}" class="menu-link">
-          <i class="fa-solid fa-house-laptop"></i>
+          <i class="fa-solid fa-house-laptop menu-icon"></i>
           <div data-i18n="Branches">Branches</div>
         </a>
       </li>
       <li class="menu-item">
         <a href="{{url("dashboard/user")}}" class="menu-link">
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user menu-icon"></i>
           <div data-i18n="Users">Users</div>
         </a>
       </li>
       <li class="menu-item">
         <a href="{{url("dashboard/department")}}" class="menu-link">
-          <i class="fa-solid fa-building-circle-arrow-right"></i>
+          <i class="fa-solid fa-building-circle-arrow-right menu-icon"></i>
           <div data-i18n="Departments">Departments</div>
         </a>
       </li>
 
       <li class="menu-item">
         <a href="{{url("dashboard/doctor")}}" class="menu-link">
-          <i class="fa-solid fa-stethoscope"></i>
+          <i class="fa-solid fa-stethoscope menu-icon"></i>
           <div data-i18n="Doctors">Doctors</div>
         </a>
       </li>
 
       <li class="menu-item">
         <a href="{{url("dashboard/test")}}" class="menu-link">
-          <i class="fa-solid fa-microscope"></i>
+          <i class="fa-solid fa-microscope menu-icon"></i>
           <div data-i18n="Tests">Tests</div>
         </a>
       </li>
 
       <li class="menu-item">
-        <a href="{{url("dashboard/doctor")}}" class="menu-link">
-          <i class="fa-solid fa-bed"></i>
+        <a href="{{url("dashboard/ward")}}" class="menu-link">
+          <i class="fa-solid fa-bed menu-icon"></i>
           <div data-i18n="Ward">Ward</div>
         </a>
       </li>
