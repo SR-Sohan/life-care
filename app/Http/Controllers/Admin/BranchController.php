@@ -21,6 +21,8 @@ class BranchController extends Controller
     
     public function create(Request $request){
 
+
+
         $request->validate([
             'name' => 'required|string',
             'address' => 'required|string',
@@ -34,6 +36,8 @@ class BranchController extends Controller
         $image = $request->file('image');
 
         $imagePath = $request->file('image')->store('branch_images', 'public');
+
+        Branch::createWithUser(["asdf","asdf"]);
 
         $branch = Branch::create([
             'name' => $request->name,
