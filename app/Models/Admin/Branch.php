@@ -10,15 +10,24 @@ class Branch extends Model
 {
     use HasFactory;
     public static function createWithUser($attributes){
-        User::create([
-            'name' => "Sohan",
-            'email' => "admin@gmail.com",
-            'password' => bcrypt('password'),
+       return User::create([
+            'name' => $attributes['name'],
+            'email' => $attributes["email"],
+            'password' => bcrypt($attributes["password"]),
+            'role' => "branch_admin"
         ]);
 
     }
+
+    public static function deleteUser($attributs){
+        $user = User::find($attributs["id"]);
+        if($user){
+            return $user->delete();
+        }
+    }
     protected $fillable = [
         'name',
+        "user_id",
         'address',
         'phone',
         'image',
@@ -26,5 +35,9 @@ class Branch extends Model
 
     public function doctors(){
         return $this->hasMany(Doctor::class);
+    }
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 }

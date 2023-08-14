@@ -41,6 +41,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
 
     // Dashboard Commericial Routes
     Route::get("branches",[BranchController::class,"index"]);
+    Route::get("branch-delete",[BranchController::class,"delete"]);
     Route::post("upload-branch",[BranchController::class,"create"]);
     
     Route::get("departments",[DepartmentController::class,"index"]);

@@ -45,12 +45,14 @@
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/css/dataTables.min.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{url("https://cdn.jsdelivr.net/npm/sweetalert2@11")}}"></script>
+    <script src="{{url("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js")}}" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{url("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")}}"></script>
     <script src="{{ asset('assets/admin') }}/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -58,17 +60,16 @@
     <script src="{{ asset('assets/admin') }}/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/admin') }}/js/config.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/dataTables.min.js"></script>
     <script src="{{ asset('assets/admin') }}/js/custom.js"></script>
     
-    <script>
-        
-      $(document).ready(function () {
-      
+    <script>        
+      $(document).ready(function () {      
           $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });  
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });  
       });
       
   </script>
@@ -120,8 +121,7 @@
 
     <!-- Core JS -->
     <script>
-      document.querySelector("#content_table").classList.add("d-none")
-      document.querySelector("#loading").classList.remove("d-none")
+    showLoading();
     </script>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('assets/admin') }}/vendor/libs/jquery/jquery.js"></script>

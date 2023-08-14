@@ -126,17 +126,14 @@
   height: 100%;
   object-fit: cover;
 }
-.table_icon p{
-  margin:  0 7px;
-  font-size: 20px;
-  cursor: pointer;
-}
-.table_icon p:nth-child(1){
+#editBtn{
   color: rgb(7, 174, 239);
+  cursor: pointer;
+  font-size: 18px;
 }
-.table_icon p:nth-child(2){
-  color: burlywood;
-}
-.table_icon p:nth-child(3){
-  color: mediumorchid
+#deleteBtn{
+  color: mediumorchid;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
 }

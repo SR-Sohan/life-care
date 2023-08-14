@@ -22,33 +22,43 @@ class BranchController extends Controller
     public function create(Request $request){
 
 
-
-        $request->validate([
-            'name' => 'required|string',
-            'address' => 'required|string',
-            'phone' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        $user =  Branch::createWithUser([
+            "name" => $request->input("username"),
+            "email" => $request->input("useremail"),
+            "password" => $request->input("password"),
         ]);
 
-        $name = $request->input("name");
-        $address = $request->input("address");
-        $phone = $request->input("phone");
-        $image = $request->file('image');
+        if($user){
+            $imagePath = $request->file('image')->store('branch_images', 'public');
+            $branch = Branch::create([
+                "user_id" => $user->id,
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'image' => $imagePath,
+            ]);
+    
+            if($branch){
+                return response()->json(["error" => false,"success" => "success","msg" => "Branch Added SuccessFully" ], 201);
+            }else{
+                return response()->json(["error" => true,"success" => "error","msg" => "Server Error" ]);
+            }
+        }else{
+            return response()->json(["error" => true,"success" => "error","msg" => "User Can't Create" ]);
+        }
+        
+    }
 
-        $imagePath = $request->file('image')->store('branch_images', 'public');
-
-        Branch::createWithUser(["asdf","asdf"]);
-
-        $branch = Branch::create([
-            'name' => $request->name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'image' => $imagePath,
-        ]);
+    public function delete(Request $request){
+        $id = $request->input("id");
 
 
-        return response()->json(["error" => false,"msg" => "Branch Added SuccessFully" ], 201);
 
+        $branch = Branch::find($id);
+
+        $res = Branch::deleteUser($branch->user_id);
+       
+        return response()->json(["data" => $res]);
         
     }
 }
