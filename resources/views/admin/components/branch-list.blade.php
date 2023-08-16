@@ -21,6 +21,7 @@
 {{-- content list end --}}
 <script>
 
+// LoadData Function
 async function loadData() {
     let table = $("#table_content");
     let tableBody = $("#table_body");
@@ -64,6 +65,8 @@ async function loadData() {
         order: [[0,"asc"]]
     });
 }
+
+// Invoke loadData Function
 loadData()
 
 // Delete Branch
@@ -87,6 +90,20 @@ async function deleteBranch(id) {
             });
             
             console.log(res);
+            if(res.data.error){
+                Swal.fire(
+                      'Message!',
+                      res.data.msg,
+                      res.data.success
+                 )
+            }else{
+                loadData()
+                Swal.fire(
+                      'Message!',
+                      res.data.msg,
+                      res.data.success
+                 )
+            }
 
         } catch (error) {
             console.error("An error occurred:", error);

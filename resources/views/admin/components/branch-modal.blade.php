@@ -62,7 +62,7 @@
           let address = $("#address").val();
           let phone = $("#phone").val();
           let image = $('#image')[0].files[0];
-          alert("username")
+  
 
           if(username && useremail && password && name && address && phone && image){
             try {

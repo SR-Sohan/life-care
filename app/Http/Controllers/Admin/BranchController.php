@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BranchController extends Controller
 {
@@ -48,17 +49,26 @@ class BranchController extends Controller
         }
         
     }
+    
 
     public function delete(Request $request){
+
         $id = $request->input("id");
-
-
 
         $branch = Branch::find($id);
 
-        $res = Branch::deleteUser($branch->user_id);
-       
-        return response()->json(["data" => $res]);
+        $imgPath = $branch->image;
+
+    
+        if(Storage::disk('public')->delete($imgPath)){
+            $res = Branch::deleteUser(["id" => $branch->user_id]);
+
+            if($res){
+                return response()->json(["error" => false,"success" => "success","msg" => "Branch Delete Successfuly" ], 201);
+            }else{
+                return response()->json(["error" => true,"success" => "error","msg" => "Branch Can't Delete " ]);
+            }
+        }
         
     }
 }
