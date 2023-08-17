@@ -47,7 +47,9 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::post("update-branch",[BranchController::class,"update"]);
     
     Route::get("departments",[DepartmentController::class,"index"]);
-    Route::post("upload-department",[DepartmentController::class,"create"]);
+    Route::get("single-department/{id}",[DepartmentController::class,"single"]);
+    Route::get("department-delete",[DepartmentController::class,"delete"]);
+    Route::post("upload-department",[DepartmentController::class,"createOrUpdate"]);
 
     Route::get("doctors",[DoctorController::class,"index"]);
     Route::post("upload-doctor",[DoctorController::class,"create"]);

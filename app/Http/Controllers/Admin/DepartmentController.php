@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DepartmentController extends Controller
 {
@@ -14,30 +15,83 @@ class DepartmentController extends Controller
 
     public function index(Request $request){
 
-        $branches = Department::paginate(10); 
+        $department = Department::get(); 
 
-        return response()->json($branches);
+        return response()->json($department);
     }
 
 
-    public function create(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+    public function single($id){
+        $branch = Department::find($id);
+
+        if ($branch) {
+            return response()->json(["error" => false, "data" => $branch], 201);
+        } else {
+            return response()->json(["error" => true, "success" => "error", "msg" => "Department Not Found"]);
+        }
+    }
 
 
+    public function createOrUpdate(Request $request)
+{
+    $id = $request->input("id");
+    if ($id) {
+        $department = Department::find($id);
+
+        if (!$department) {
+            return response()->json(["error" => true, "success" => "error", "msg" => "Department not found."], 404);
+        }
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($department->image); // Delete old image
+            $imagePath = $request->file('image')->store('department_images', 'public');
+            $department->image = $imagePath;
+        }
+
+        $department->name = $request->input("name");
+        $department->description = $request->input("description");
+
+        if ($department->save()) {
+            return response()->json(["error" => false, "success" => "success", "msg" => "Department updated successfully."], 200);
+        } else {
+            return response()->json(["error" => true, "success" => "error", "msg" => "Server error while updating department."], 500);
+        }
+    } else {
         $imagePath = $request->file('image')->store('department_images', 'public');
-
-        $branch = Department::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'phone' => $request->phone,
+        $department = Department::create([
+            'name' => $request->input("name"),
+            'description' => $request->input("description"),
             'image' => $imagePath,
         ]);
 
-
-        return response()->json(["error" => false,"msg" => "Department Added SuccessFully" ], 201);
+        if ($department) {
+            return response()->json(["error" => false, "success" => "success", "msg" => "Department added successfully."], 201);
+        } else {
+            return response()->json(["error" => true, "success" => "error", "msg" => "Server error while adding department."], 500);
+        }
     }
+}
+
+
+    public function delete(Request $request)
+    {
+
+        $id = $request->input("id");
+
+        $department = Department::find($id);
+
+        $imgPath = $department->image;
+
+
+        if (Storage::disk('public')->delete($imgPath)) {
+            $res = $department->delete();
+
+            if ($res) {
+                return response()->json(["error" => false, "success" => "success", "msg" => "Department Delete Successfuly"], 201);
+            } else {
+                return response()->json(["error" => true, "success" => "error", "msg" => "Department Can't Delete "]);
+            }
+        }
+    }
+      
 }
