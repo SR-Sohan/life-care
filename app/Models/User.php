@@ -23,10 +23,11 @@ class User extends Authenticatable
         'password',
         'role'
     ];
-    public function branch()
-    {
-        return $this->belongsTo(Branch::class);
+
+    public function branch()    {
+        return $this->hasOne(Branch::class);
     }
+   
 
     /**
      * The attributes that should be hidden for serialization.

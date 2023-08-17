@@ -4,10 +4,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Add Branch</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button onclick="formClose()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="form">
+          <form class="form">
             <input type="hidden" name="branch_id" id="branch_id">
             <div id="userForm" class="mb-3">
                 <div class="mb-3 d-flex align-items-center justify-content-between">
@@ -40,12 +40,15 @@
                 <input type="number" name="phone" id="phone" class="form-control" >
             </div>
             <div class="mb-3">
-                <input type="file" name="image" id="image" class="form-control" >
+                <img id="imgPreview" class="w-25" src="{{asset("assets/admin/img/default.jpg")}}" alt="">
+            </div>
+            <div class="mb-3">
+                <input oninput="imgPreview.src = window.URL.createObjectURL(this.files[0])" type="file" name="image" id="image" class="form-control" >
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button onclick="formClose()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button onclick="handleSubmit()" id="submit_btn" type="button" class="btn btn-primary">Add Branch</button>
         </div>
       </div>
@@ -54,6 +57,13 @@
 
   <script>
 
+    //  Form close
+  function formClose(){
+      $("#imgPreview").attr("src","{{asset("assets/admin/img/default.jpg")}}")
+      $(".form")[0].reset();
+
+  }
+ 
     async function handleSubmit(){
           let username = $("#username").val();
           let useremail = $("#useremail").val();
@@ -84,7 +94,7 @@
                  )
               }else{
                 $('#branchModal').modal('hide');
-                $("#form")[0].reset();
+                formClose()
                 loadData()
                 Swal.fire(
                       'Message!',

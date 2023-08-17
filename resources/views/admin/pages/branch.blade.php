@@ -12,5 +12,7 @@
    
     @include('admin.components.branch-list')
     @include('admin.components.branch-modal')
+    @include('admin.components.branch-update')
+    
 
 @endsection

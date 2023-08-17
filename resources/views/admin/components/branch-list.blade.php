@@ -8,6 +8,7 @@
             <tr>
                 <th>Sl.</th>
                 <th>Name</th>
+                <th>User Name</th>
                 <th>Image</th>
                 <th>Address</th>
                 <th>Phone</th>
@@ -21,7 +22,10 @@
 {{-- content list end --}}
 <script>
 
+
+
 // LoadData Function
+loadData()
 async function loadData() {
     let table = $("#table_content");
     let tableBody = $("#table_body");
@@ -41,11 +45,12 @@ async function loadData() {
                 let newRow = `<tr>
                     <td>${index + 1}</td>
                     <td>${item.name}</td>
+                    <td>${item.user.name}</td>
                     <td class="table_img"><img src="{{asset("storage")}}/${item.image}" alt=""></td>
                     <td>${item.address}</td>
                     <td>${item.phone}</td>
                     <td>
-                        <i id="editBtn" class="fa-solid fa-pen-to-square"></i>
+                        <i data-bs-toggle="modal" data-bs-target="#branchUpdateModal" onclick="updateBranch(${item.id})" id="editBtn" class="fa-solid fa-pen-to-square"></i>
                         <i onclick="deleteBranch(${item.id})"  id="deleteBtn" class="fa-solid fa-trash"></i>
                     </td>
                     <!-- Add more columns as needed -->
@@ -61,13 +66,12 @@ async function loadData() {
     }
 
     table.DataTable({
-        lengthMenu: [10,15,20,50],
+        lengthMenu: [15,30,50,100],
         order: [[0,"asc"]]
     });
 }
 
-// Invoke loadData Function
-loadData()
+
 
 // Delete Branch
 async function deleteBranch(id) {
