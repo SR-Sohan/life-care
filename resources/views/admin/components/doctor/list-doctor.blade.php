@@ -67,4 +67,47 @@ async function loadData() {
     });
 }
 
+
+// Delete Item
+async function deleteItem(id){
+    const confirmed = await Swal.fire({
+        title: 'Confirm Deletion',
+        text: 'Are you sure you want to delete this branch?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+    });
+
+    if (confirmed.isConfirmed) {
+        try {
+            let res = await axios.get("/dashboard/department-delete", {
+                params: {
+                    id: id
+                }
+            });
+            
+            
+            if(res.data.error){
+                Swal.fire(
+                      'Message!',
+                      res.data.msg,
+                      res.data.success
+                 )
+            }else{
+                loadData()
+                Swal.fire(
+                      'Message!',
+                      res.data.msg,
+                      res.data.success
+                 )
+            }
+
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
+    }
+}
+
 </script>

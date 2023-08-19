@@ -53,6 +53,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
 
     Route::get("doctors",[DoctorController::class,"index"]);
     Route::post("upload-doctor",[DoctorController::class,"create"]);
+    Route::get("doctor-delete",[DoctorController::class,"delete"]);
 
     Route::get("tests", [TestController::class,"index"]);
     Route::get("single-test/{id}", [TestController::class,"single"]);

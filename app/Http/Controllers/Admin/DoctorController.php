@@ -7,6 +7,7 @@ use App\Models\Admin\Branch;
 use App\Models\Admin\Department;
 use App\Models\Admin\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
 {
@@ -50,6 +51,28 @@ class DoctorController extends Controller
             }
         } else {
             return response()->json(["error" => true, "success" => "error", "msg" => "User Can't Create"]);
+        }
+    }
+
+
+    public function delete(Request $request)
+    {
+
+        $id = $request->input("id");
+
+        $doctor = Doctor::find($id);
+
+        $imgPath = $doctor->image;
+
+
+        if (Storage::disk('public')->delete($imgPath)) {
+            $res = $doctor->delete();
+
+            if ($res) {
+                return response()->json(["error" => false, "success" => "success", "msg" => "Department Delete Successfuly"], 201);
+            } else {
+                return response()->json(["error" => true, "success" => "error", "msg" => "Department Can't Delete "]);
+            }
         }
     }
 }
