@@ -23,19 +23,11 @@
           <div data-i18n="Dashboards">Dashboards</div>
         </a>
       </li>
-
-      
-
+      @if(auth()->user()?->role === 'super_admin')
       <li class="menu-item">
-        <a href="{{url("dashboard/branch")}}" class="menu-link">
-          <i class="fa-solid fa-house-laptop menu-icon"></i>
-          <div data-i18n="Branches">Branches</div>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="{{url("dashboard/user")}}" class="menu-link">
-          <i class="fa-solid fa-user menu-icon"></i>
-          <div data-i18n="Users">Users</div>
+        <a href="{{url("dashboard/test")}}" class="menu-link">
+          <i class="fa-solid fa-microscope menu-icon"></i>
+          <div data-i18n="Tests">Tests</div>
         </a>
       </li>
       <li class="menu-item">
@@ -44,34 +36,48 @@
           <div data-i18n="Departments">Departments</div>
         </a>
       </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/branch")}}" class="menu-link">
+          <i class="fa-solid fa-house-laptop menu-icon"></i>
+          <div data-i18n="Branches">Branches</div>
+        </a>
+      </li>
+      @endif
 
+      {{-- <li class="menu-item">
+        <a href="{{url("dashboard/user")}}" class="menu-link">
+          <i class="fa-solid fa-user menu-icon"></i>
+          <div data-i18n="Users">Users</div>
+        </a>
+      </li> --}}
+    
+      @if(auth()->user()?->role === 'branch_admin')
       <li class="menu-item">
         <a href="{{url("dashboard/doctor")}}" class="menu-link">
           <i class="fa-solid fa-stethoscope menu-icon"></i>
           <div data-i18n="Doctors">Doctors</div>
         </a>
       </li>
-
-      <li class="menu-item">
-        <a href="{{url("dashboard/appointments")}}" class="menu-link">
-          <i class="fa-regular fa-handshake menu-icon"></i>
-          <div data-i18n="Appointments">Appointments</div>
-        </a>
-      </li>
-
-      <li class="menu-item">
-        <a href="{{url("dashboard/test")}}" class="menu-link">
-          <i class="fa-solid fa-microscope menu-icon"></i>
-          <div data-i18n="Tests">Tests</div>
-        </a>
-      </li>
-
       <li class="menu-item">
         <a href="{{url("dashboard/ward")}}" class="menu-link">
           <i class="fa-solid fa-bed menu-icon"></i>
           <div data-i18n="Ward">Ward</div>
         </a>
       </li>
+      @endif
+
+      @if(auth()->user()?->role == "receiption")
+      <li class="menu-item">
+        <a href="{{url("dashboard/appointments")}}" class="menu-link">
+          <i class="fa-regular fa-handshake menu-icon"></i>
+          <div data-i18n="Appointments">Appointments</div>
+        </a>
+      </li>
+      @endif
+
+   
+
+      
      
 
 

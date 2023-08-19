@@ -8,18 +8,30 @@
         </div>
         <div class="modal-body">
           <form id="form">
-            <div class="mb-3">
-                <label for="branch">Branch Name</label>
-              <select name="branch_id" id="branch_id" class="form-select">
-                <option value="-1">Select Branch</option>
-                @forelse ($branches as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
-                @empty
-                <option >No Branch Yet</option>
-                @endforelse
+              
+            
 
-              </select>
-            </div>
+            <input type="hidden" class="form-control" name="branch_id" value="{{auth()->user()->id}}">
+
+            <div id="userForm" class="mb-3">
+              <div class="mb-3 d-flex align-items-center justify-content-between">
+                  <div>
+                      <label for="username">User Name</label>
+                      <input type="text" name="name" id="username" class="form-control" required >
+                  </div>
+                  <div>
+                      <label for="useremail">User Email</label>
+                      <input type="email" name="useremail" id="useremail" class="form-control" required >
+                  </div>
+              </div>
+              <div class="mb-3 d-flex align-items-center justify-content-between">
+                  <div>
+                      <label for="password">User Password</label>
+                      <input type="password" name="password" id="password" class="form-control" required >
+                  </div>
+              </div>
+          </div>
+
             <div class="mb-3">
                 <label for="department">Department Name</label>
               <select name="department_id" id="department_id" class="form-select">
@@ -48,7 +60,10 @@
                 <input type="text" name="address" id="address" class="form-control" >
             </div>
             <div class="mb-3">
-                <input type="file" name="image" id="image" class="form-control" >
+              <img id="preview" class="w-25" src="{{asset("assets/admin/img/default.jpg")}}" alt="">
+          </div>
+            <div class="mb-3">
+                <input oninput="preview.src = window.URL.createObjectURL(this.files[0])" type="file" name="image" id="image" class="form-control" >
             </div>
           </form>
         </div>

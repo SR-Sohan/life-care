@@ -86,25 +86,25 @@
                 }
         }
         
-        // Update
-        async function updateItem(id){
+      // Update
+      async function updateItem(id){
 
-          let res = await axios.get(`/dashboard/single-department/${id}`)
+        let res = await axios.get(`/dashboard/single-department/${id}`)
 
-         if(res.data.data.error){
-              Swal.fire(
-                    'Message!',
-                    res.data.data.msg,
-                    res.data.data.success
-                )
-         }else{
-            $("#department_id").val(res.data.data.id)
-            $("#name").val(res.data.data.name)
-            $("#description").val(res.data.data.description)
-            $("#submit_btn").html("Update Department")
-            $("#pageTitle").html("Update Department")
-            $("#preview").attr("src",`{{asset('storage/${res.data.data.image}')}}`)
-         }
-
+        if(res.data.data.error){
+            Swal.fire(
+                  'Message!',
+                  res.data.data.msg,
+                  res.data.data.success
+              )
+        }else{
+          $("#department_id").val(res.data.data.id)
+          $("#name").val(res.data.data.name)
+          $("#description").val(res.data.data.description)
+          $("#submit_btn").html("Update Department")
+          $("#pageTitle").html("Update Department")
+          $("#preview").attr("src",`{{asset('storage/${res.data.data.image}')}}`)
         }
+
+      }
     </script>

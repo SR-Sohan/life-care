@@ -25,7 +25,7 @@ class DepartmentController extends Controller
         $branch = Department::find($id);
 
         if ($branch) {
-            return response()->json(["error" => false, "data" => $branch], 201);
+            return response()->json(["error" => false,"success" => "success", "data" => $branch], 201);
         } else {
             return response()->json(["error" => true, "success" => "error", "msg" => "Department Not Found"]);
         }
