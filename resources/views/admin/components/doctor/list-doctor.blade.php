@@ -46,9 +46,9 @@ async function loadData() {
                                     <td>${item.branch.name}</td>
                                     <td>${item.department.name}</td>
                                     <td>${item.phone}</td>
-                                    <td class="d-flex table_icon">
-                                        <p><i class="fa-solid fa-pen-to-square"></i></p>
-                                        <p><i class="fa-solid fa-trash"></i></p>
+                                    <td >
+                                        <i data-bs-toggle="modal" data-bs-target="#createModal" onclick="updateItem(${item.id})" id="editBtn" class="fa-solid fa-pen-to-square"></i>
+                        <i onclick="deleteItem(${item.id})"  id="deleteBtn" class="fa-solid fa-trash"></i>
                                     </td>
                                     </tr>`;
 

@@ -16,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Frest - Bootstrap Admin Template</title>
+    <title>Dashboard-Life Care</title>
 
     <meta name="description" content="" />
 
