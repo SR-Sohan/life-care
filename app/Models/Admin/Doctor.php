@@ -20,6 +20,13 @@ class Doctor extends Model
  
      }
 
+     public static function userDelete($attributes){
+        $user = User::find($attributes["id"]);
+        if($user){
+            return $user->delete();
+        }
+     }
+
     protected $fillable = [
         'user_id',
         'branch_id',

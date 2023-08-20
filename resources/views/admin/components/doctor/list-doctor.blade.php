@@ -72,7 +72,7 @@ async function loadData() {
 async function deleteItem(id){
     const confirmed = await Swal.fire({
         title: 'Confirm Deletion',
-        text: 'Are you sure you want to delete this branch?',
+        text: 'Are you sure you want to delete this Doctor?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
@@ -82,12 +82,13 @@ async function deleteItem(id){
 
     if (confirmed.isConfirmed) {
         try {
-            let res = await axios.get("/dashboard/department-delete", {
+            let res = await axios.get("/dashboard/doctor-delete", {
                 params: {
                     id: id
                 }
             });
             
+     
             
             if(res.data.error){
                 Swal.fire(

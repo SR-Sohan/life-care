@@ -64,14 +64,13 @@ class DoctorController extends Controller
 
         $imgPath = $doctor->image;
 
-
         if (Storage::disk('public')->delete($imgPath)) {
-            $res = $doctor->delete();
+            $res = Doctor::userDelete(["id" => $doctor->user_id]);
 
             if ($res) {
-                return response()->json(["error" => false, "success" => "success", "msg" => "Department Delete Successfuly"], 201);
+                return response()->json(["error" => false, "success" => "success", "msg" => "Doctor Delete Successfuly"], 201);
             } else {
-                return response()->json(["error" => true, "success" => "error", "msg" => "Department Can't Delete "]);
+                return response()->json(["error" => true, "success" => "error", "msg" => "Doctor Can't Delete "]);
             }
         }
     }

@@ -102,7 +102,7 @@ class BranchController extends Controller
 
         $branch = Branch::find($id);
 
-        $imgPath = $branch->image;
+        $imgPath = $branch->images;
 
 
         if (Storage::disk('public')->delete($imgPath)) {
