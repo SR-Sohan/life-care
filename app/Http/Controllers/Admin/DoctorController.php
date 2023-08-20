@@ -62,7 +62,7 @@ class DoctorController extends Controller
 
         $doctor = Doctor::find($id);
 
-        $imgPath = $doctor->image;
+        $imgPath = $doctor->images;
 
         if (Storage::disk('public')->delete($imgPath)) {
             $res = Doctor::userDelete(["id" => $doctor->user_id]);

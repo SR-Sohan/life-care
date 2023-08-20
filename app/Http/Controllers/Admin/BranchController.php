@@ -102,8 +102,9 @@ class BranchController extends Controller
 
         $branch = Branch::find($id);
 
-        $imgPath = $branch->images;
+        $imgPath = $branch->image;
 
+        
 
         if (Storage::disk('public')->delete($imgPath)) {
             $res = Branch::deleteUser(["id" => $branch->user_id]);

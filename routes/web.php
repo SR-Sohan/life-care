@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WardController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\AppointmentController;
 use App\Http\Controllers\Client\ContactController;
@@ -37,6 +38,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("doctor",[DoctorController::class,"page"]);
     Route::get("department",[DepartmentController::class,"page"]);
     Route::get("test",[TestController::class,"page"]);
+    Route::get("ward",[WardController::class,"page"]);
 
 
     // Dashboard Commericial Routes
@@ -59,6 +61,9 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("single-test/{id}", [TestController::class,"single"]);
     Route::get("test-delete", [TestController::class,"delete"]);
     Route::post("upload-test",[TestController::class,"create"]);
+
+
+
 
 
 });

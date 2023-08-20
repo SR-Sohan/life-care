@@ -88,7 +88,6 @@ async function deleteItem(id){
                 }
             });
             
-     
             
             if(res.data.error){
                 Swal.fire(
