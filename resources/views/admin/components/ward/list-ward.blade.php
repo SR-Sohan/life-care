@@ -1,5 +1,5 @@
 {{-- content list start  --}}
-
+@include('admin.components.loading')
 <div class="content_list mt-5">
     <table id="table_content"  class="table table-primary table-striped">
         <thead>
@@ -31,7 +31,7 @@ async function loadData(){
 
     showLoading()
     let res = await axios.get("/dashboard/wards");
-
+    hideLoading();
     if(Array.isArray(res.data)){
         tableBody.empty();
 
