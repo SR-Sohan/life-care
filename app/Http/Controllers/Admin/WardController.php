@@ -22,6 +22,17 @@ class WardController extends Controller
         return response()->json($ward);
     }
 
+    public function single($id){
+      
+        $ward = Ward::find($id);
+
+        if($ward){
+            return response()->json(["error" => false, "data" => $ward]);
+        }else{
+            return response()->json(["error" => true, "success" => "error","msg" => "Ward Not Found"]);
+        }
+    }
+
     public function createOrUpdate(Request $request){
 
         $wardId = $request->input("ward_id");

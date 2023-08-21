@@ -43,7 +43,7 @@ async function loadData(){
                     <td>${item.ward_number}</td>
                     <td>${item.branch.name}</td>
                     <td >
-                        <i data-bs-toggle="modal" data-bs-target="#createModal" onclick="updateItem(${item.id})" id="editBtn" class="fa-solid fa-pen-to-square"></i>
+                        <i data-bs-toggle="modal" data-bs-target="#wardModal" onclick="updateItem(${item.id})" id="editBtn" class="fa-solid fa-pen-to-square"></i>
                          <i onclick="deleteItem(${item.id})"  id="deleteBtn" class="fa-solid fa-trash"></i>
                     </td>
                 </tr>`;
@@ -51,7 +51,7 @@ async function loadData(){
                 tableBody.append(newRow);
         });
     }else{
-        console.log("Data Array Not Found");
+        alert("Data Array Not Found");
     }
 
     table.DataTable({
@@ -101,6 +101,30 @@ async function deleteItem(id){
         } catch (error) {
             console.error("An error occurred:", error);
         }
+    }
+
+
+}
+
+async function updateItem(id){
+
+    $("#submit_btn").html("Update Ward")
+
+    let res = await axios.get(`/dashboard/wards-single/${id}`);
+
+ 
+    if(res.data.error){
+        Swal.fire(
+            'Message!',
+            res.data.msg,
+            res.data.success
+        )
+    }else{
+        $("#ward_id").val(res.data.data.id)
+        $("#branch_id").val(res.data.data.branch_id)
+        $("#ward_number").val(res.data.data.ward_number)
+        $("#name").val(res.data.data.name)
+        $("#ward_type").val(res.data.data.ward_type)
     }
 
 
