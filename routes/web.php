@@ -41,28 +41,33 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("ward",[WardController::class,"page"]);
 
 
-    // Dashboard Commericial Routes
+    // Branch Routes
     Route::get("branches",[BranchController::class,"index"]);
     Route::get("branch-delete",[BranchController::class,"delete"]);
     Route::get("single-branch/{id}",[BranchController::class,"single"]);
     Route::post("upload-branch",[BranchController::class,"create"]);
     Route::post("update-branch",[BranchController::class,"update"]);
     
+    // Department Routes
     Route::get("departments",[DepartmentController::class,"index"]);
     Route::get("single-department/{id}",[DepartmentController::class,"single"]);
     Route::get("department-delete",[DepartmentController::class,"delete"]);
     Route::post("upload-department",[DepartmentController::class,"createOrUpdate"]);
 
+    // Doctor Routes
     Route::get("doctors",[DoctorController::class,"index"]);
     Route::post("upload-doctor",[DoctorController::class,"create"]);
     Route::get("doctor-delete",[DoctorController::class,"delete"]);
 
+    // Test Routes
     Route::get("tests", [TestController::class,"index"]);
     Route::get("single-test/{id}", [TestController::class,"single"]);
     Route::get("test-delete", [TestController::class,"delete"]);
     Route::post("upload-test",[TestController::class,"create"]);
 
-
+    // Ward Routes
+    Route::post("create-ward",[WardController::class,"createOrUpdate"]);
+    Route::get("wards",[WardController::class,"index"]);
 
 
 

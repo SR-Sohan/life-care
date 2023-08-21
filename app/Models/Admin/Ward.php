@@ -9,5 +9,16 @@ class Ward extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'branch_id',
+        'ward_type',
+        'ward_number',
+        'name',
+        
+    ];
+
+    public function branch(){
+        return $this->belongsTo(Branch::class);
+    }
+
 }

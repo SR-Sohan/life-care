@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->string("name");
+            $table->enum("ward_type",["icu","ac","non-ac"]);
             $table->integer("ward_number");
             $table->timestamps();
             $table->softDeletes();

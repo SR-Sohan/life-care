@@ -36,6 +36,9 @@ class Branch extends Model
     public function doctors(){
         return $this->hasMany(Doctor::class);
     }
+    public function wards(){
+        return $this->hasMany(Ward::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
