@@ -61,4 +61,21 @@ class WardController extends Controller
         }
         
     }
+
+
+    public function delete(Request $request){
+        
+        $id = $request->input("id");
+        $ward = Ward::find($id);
+
+        if($ward){
+            if($ward->delete()){
+                return response()->json(["error" => false, "success" => "success", "msg" => "Ward Delete Successfuly"], 201);
+            }else{
+                return response()->json(["error" => true, "success" => "error", "msg" => "Ward Can't Delete"]);
+            }
+        }else{
+            return response()->json(["error" => true, "success" => "error", "msg" => "Ward Not Found!"]);
+        }
+    }
 }

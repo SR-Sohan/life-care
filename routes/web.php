@@ -68,6 +68,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     // Ward Routes
     Route::post("create-ward",[WardController::class,"createOrUpdate"]);
     Route::get("wards",[WardController::class,"index"]);
+    Route::get("ward-delete", [WardController::class,"delete"]);
 
 
 
