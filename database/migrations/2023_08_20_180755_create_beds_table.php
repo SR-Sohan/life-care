@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ward_id');
             $table->foreign('ward_id')->references('id')->on('beds')->onDelete('cascade');
             $table->integer("bed_number");
-            $table->enum("bed_status",["vacant","occupied"]);
+            $table->enum("bed_status",["available","notAvailable"])->default("available");
             $table->timestamps();
             $table->softDeletes();
         });
