@@ -72,7 +72,7 @@ async function loadData() {
 async function deleteItem(id){
     const confirmed = await Swal.fire({
         title: 'Confirm Deletion',
-        text: 'Are you sure you want to delete this Doctor?',
+        text: 'Are you sure you want to delete this branch?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
