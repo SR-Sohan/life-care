@@ -25,6 +25,12 @@
       </li>
       @if(auth()->user()?->role === 'super_admin')
       <li class="menu-item">
+        <a href="{{url("dashboard/medicine")}}" class="menu-link">
+          <i class="fa-solid fa-capsules menu-icon"></i>
+          <div data-i18n="Medicine">Medicine</div>
+        </a>
+      </li>
+      <li class="menu-item">
         <a href="{{url("dashboard/test")}}" class="menu-link">
           <i class="fa-solid fa-microscope menu-icon"></i>
           <div data-i18n="Tests">Tests</div>

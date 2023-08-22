@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\MedicineController;
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WardController;
@@ -39,6 +40,8 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("department",[DepartmentController::class,"page"]);
     Route::get("test",[TestController::class,"page"]);
     Route::get("ward",[WardController::class,"page"]);
+    Route::get("medicine",[MedicineController::class,"page"]);
+    
 
 
     // Branch Routes
@@ -70,6 +73,9 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("wards",[WardController::class,"index"]);
     Route::get("wards-single/{id}",[WardController::class,"single"]);
     Route::get("ward-delete", [WardController::class,"delete"]);
+
+    //Medicine Routes
+    
 
 
 
