@@ -59,6 +59,12 @@
     
       @if(auth()->user()?->role === 'branch_admin')
       <li class="menu-item">
+        <a href="{{url("dashboard/employee")}}" class="menu-link">
+          <i class="fa-solid fa-users menu-icon"></i>
+          <div data-i18n="Employee">Employee</div>
+        </a>
+      </li>
+      <li class="menu-item">
         <a href="{{url("dashboard/doctor")}}" class="menu-link">
           <i class="fa-solid fa-stethoscope menu-icon"></i>
           <div data-i18n="Doctors">Doctors</div>

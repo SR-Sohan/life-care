@@ -27,6 +27,9 @@ class User extends Authenticatable
     public function branch()    {
         return $this->hasOne(Branch::class);
     }
+    public function employee()    {
+        return $this->hasOne(Employee::class);
+    }
    
 
     /**

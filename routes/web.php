@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MedicineController;
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UserController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\Client\AppointmentController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\DoctorsController;
 use App\Http\Controllers\Client\HomeController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,7 +41,13 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("test",[TestController::class,"page"]);
     Route::get("ward",[WardController::class,"page"]);
     Route::get("medicine",[MedicineController::class,"page"]);
+    Route::get("employee",[EmployeeController::class,"page"]);
     
+
+    // Employee Routes
+    Route::get("employes",[EmployeeController::class,"index"]);
+    Route::get("employee-delete",[EmployeeController::class,"delete"]);
+    Route::post("upload-employee",[EmployeeController::class,"create"]);
 
 
     // Branch Routes
