@@ -7,6 +7,10 @@
             <button data-bs-toggle="modal" data-bs-target="#medicineModal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
         </div>
     </div>
-    {{-- page heading end --}}    
+    {{-- page heading end --}} 
+    
+    
+    @include('admin.components.medicine.list-medicine')
+    @include('admin.components.medicine.create-medicine')
 
 @endsection
