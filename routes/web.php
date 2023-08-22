@@ -75,6 +75,12 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("ward-delete", [WardController::class,"delete"]);
 
     //Medicine Routes
+    Route::get("medicines", [MedicineController::class,"index"]);
+    Route::get("medicines-single/{id}",[MedicineController::class,"single"]);
+    Route::post("create-medicine",[MedicineController::class,"createOrUpdate"]);
+    Route::get("medicine-delete", [MedicineController::class,"delete"]);
+
+
     
 
 
