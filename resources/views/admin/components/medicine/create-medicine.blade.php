@@ -45,6 +45,7 @@
     // Reset Form
   function formClose(){
     $("#form")[0].reset()
+    $("#medicine_id").val("");
     $("#submit_btn").html("Add Medicine")
   }
 
