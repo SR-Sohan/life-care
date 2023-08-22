@@ -91,6 +91,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
 
     //Appointment Routes
     Route::get("appointment-doctor/{id}",[AdminAppointmentController::class,"getDoctor"]);
+    Route::post("upload-appointment",[AdminAppointmentController::class,"create"]);
 
 
     

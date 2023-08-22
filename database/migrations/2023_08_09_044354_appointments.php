@@ -24,8 +24,8 @@ return new class extends Migration
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->integer("phone");
             $table->date("appointment_date");
-            $table->time("appointment_time");
             $table->enum("status",['pending',"complete","cancel"]);
             $table->timestamps();
             $table->softDeletes();

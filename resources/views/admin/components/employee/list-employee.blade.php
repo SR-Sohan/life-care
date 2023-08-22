@@ -31,7 +31,7 @@ async function loadData() {
 
         let res = await axios.get("/dashboard/employes");     
         hideLoading(); 
-    console.log(res);
+    
         if (Array.isArray(res.data)) {
             tableBody.empty(); 
 
