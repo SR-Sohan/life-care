@@ -16,7 +16,7 @@ class RoleCheck
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        $allowedRoles = ['super_admin', 'branch_admin', 'doctor', 'lab', 'reception', 'cashier', 'report'];
+        $allowedRoles = ['super_admin', 'branch_admin', 'doctor', 'lab', 'receiption', 'cashier', 'report'];
         
         if (!$user || !in_array($user->role, $allowedRoles)) {
             return redirect()->to("/");

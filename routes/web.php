@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -42,6 +43,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("ward",[WardController::class,"page"]);
     Route::get("medicine",[MedicineController::class,"page"]);
     Route::get("employee",[EmployeeController::class,"page"]);
+    Route::get("appointments",[AdminAppointmentController::class,"page"]);
     
 
     // Employee Routes
@@ -85,6 +87,10 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("medicines-single/{id}",[MedicineController::class,"single"]);
     Route::post("create-medicine",[MedicineController::class,"createOrUpdate"]);
     Route::get("medicine-delete", [MedicineController::class,"delete"]);
+
+
+    //Appointment Routes
+    Route::get("appointment-doctor/{id}",[AdminAppointmentController::class,"getDoctor"]);
 
 
     
