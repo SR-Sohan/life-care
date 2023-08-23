@@ -8,11 +8,11 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MedicineController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\Admin\PrintAppointmentController;
-=======
+
 use App\Http\Controllers\Admin\PrescriptionController;
->>>>>>> 23205e21cb26071ee55e4b4833a7fadcbd2bc259
+
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\TestFormController;
 use App\Http\Controllers\Admin\UserController;
@@ -51,15 +51,12 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("medicine",[MedicineController::class,"page"]);
     Route::get("employee",[EmployeeController::class,"page"]);
     Route::get("appointments",[AdminAppointmentController::class,"page"]);
-<<<<<<< HEAD
     Route::get("printappointments",[PrintAppointmentController::class,"page"]);
-=======
     Route::get("test-form", [TestFormController::class,"page"]);
     Route::get("admit-patient", [AdmitPatientController::class,"page"]);
     Route::get("prescription", [PrescriptionController::class,"page"]);
     
 
->>>>>>> 23205e21cb26071ee55e4b4833a7fadcbd2bc259
     
 
     // Employee Routes
