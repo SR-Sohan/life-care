@@ -72,8 +72,14 @@
       </li>
       <li class="menu-item">
         <a href="{{url("dashboard/ward")}}" class="menu-link">
-          <i class="fa-solid fa-bed menu-icon"></i>
+          <i class="fa-solid fa-warehouse menu-icon"></i>
           <div data-i18n="Ward">Ward</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/bed")}}" class="menu-link">
+          <i class="fa-solid fa-bed menu-icon"></i>
+          <div data-i18n="Bed">Bed</div>
         </a>
       </li>
       @endif

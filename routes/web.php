@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdmitPatientController;
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
+use App\Http\Controllers\Admin\BedController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -55,6 +56,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("test-form", [TestFormController::class,"page"]);
     Route::get("admit-patient", [AdmitPatientController::class,"page"]);
     Route::get("prescription", [PrescriptionController::class,"page"]);
+    Route::get("bed", [BedController::class,"page"]);
     
 
     
