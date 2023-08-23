@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdmitPatientController;
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -7,7 +8,9 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MedicineController;
+use App\Http\Controllers\Admin\PrescriptionController;
 use App\Http\Controllers\Admin\TestController;
+use App\Http\Controllers\Admin\TestFormController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WardController;
 use App\Http\Controllers\Client\AboutController;
@@ -44,6 +47,11 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("medicine",[MedicineController::class,"page"]);
     Route::get("employee",[EmployeeController::class,"page"]);
     Route::get("appointments",[AdminAppointmentController::class,"page"]);
+    Route::get("test-form", [TestFormController::class,"page"]);
+    Route::get("admit-patient", [AdmitPatientController::class,"page"]);
+    Route::get("prescription", [PrescriptionController::class,"page"]);
+    
+
     
 
     // Employee Routes
@@ -92,6 +100,15 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     //Appointment Routes
     Route::get("appointment-doctor/{id}",[AdminAppointmentController::class,"getDoctor"]);
     Route::post("upload-appointment",[AdminAppointmentController::class,"create"]);
+
+
+    // //Test Form Route
+    // Route::get("test-Form", [TestFormController::class,"index"]);
+
+
+
+    // //Admit Patient Route
+    // Route::get("admit-patient", [AdmitPatientController::class,"index"]);
 
 
     

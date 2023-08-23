@@ -94,22 +94,31 @@
 
 
       <!-- Menu Item -->
+      @if(auth()->user()?->role === 'cashier')
       <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Manage">Manage</div>
+        <a href="{{url("dashboard/test-form")}}" class="menu-link">
+          <i class="fa-regular fa-rectangle-list menu-icon"></i>
+          <div data-i18n="Test Form">Test Form</div>
         </a>
-
-        <ul class="menu-sub">
-         
-          
-          <li class="menu-item">
-            <a href="layouts-collapsed-menu.html" class="menu-link">
-              <div data-i18n="Doctors">Doctors</div>
-            </a>
-          </li>
-        </ul>
       </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/admit-patient")}}" class="menu-link">
+          <i class="fa-solid fa-bed menu-icon"></i>
+          <div data-i18n="Admit Patient">Admit Patient</div>
+        </a>
+      </li>
+      @endif
+
+
+      <!-- Menu Item -->
+      @if(auth()->user()?->role === 'doctor')
+      <li class="menu-item">
+        <a href="{{url("dashboard/prescription")}}" class="menu-link">
+          <i class="fa-solid fa-file-medical menu-icon"></i>
+          <div data-i18n="Prescription">Prescription</div>
+        </a>
+      </li>
+      @endif
 
     </ul>
   </aside>
