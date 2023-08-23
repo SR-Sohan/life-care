@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MedicineController;
+use App\Http\Controllers\Admin\PrintAppointmentController;
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WardController;
@@ -44,6 +45,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("medicine",[MedicineController::class,"page"]);
     Route::get("employee",[EmployeeController::class,"page"]);
     Route::get("appointments",[AdminAppointmentController::class,"page"]);
+    Route::get("printappointments",[PrintAppointmentController::class,"page"]);
     
 
     // Employee Routes
@@ -91,7 +93,13 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
 
     //Appointment Routes
     Route::get("appointment-doctor/{id}",[AdminAppointmentController::class,"getDoctor"]);
+    Route::get("appoitnments",[AdminAppointmentController::class,"index"]);
     Route::post("upload-appointment",[AdminAppointmentController::class,"create"]);
+    Route::post("update-status",[AdminAppointmentController::class,"updateStatus"]);
+
+    // Appointment Print Routes
+    Route::post("search-appointments",[PrintAppointmentController::class,"search"]);
+
 
 
     

@@ -85,6 +85,12 @@
           <div data-i18n="Appointments">Appointments</div>
         </a>
       </li>
+      <li class="menu-item">
+        <a href="{{url("dashboard/printappointments")}}" class="menu-link">
+          <i class="fa-solid fa-print menu-icon"></i>
+          <div data-i18n="Print Appointments">Print Appointments</div>
+        </a>
+      </li>
       @endif
 
    

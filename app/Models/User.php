@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Admin\Appointment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -29,6 +31,9 @@ class User extends Authenticatable
     }
     public function employee()    {
         return $this->hasOne(Employee::class);
+    }
+    public function appointments()    {
+        return $this->hasOne(Appointment::class);
     }
    
 

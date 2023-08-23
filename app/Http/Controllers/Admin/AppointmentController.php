@@ -19,6 +19,13 @@ class AppointmentController extends Controller
         return view("admin.pages.appointment",["department" => $department]);
     }
 
+    public function index(){
+
+        $appointment = Appointment::with(["user","branch","department","doctor"])->orderBy('created_at', 'desc')->get();
+
+        return $appointment;
+    }
+
     public function getDoctor($id){
 
         $user = auth()->user();
@@ -103,4 +110,19 @@ class AppointmentController extends Controller
         }
 
     }
+
+    public function updateStatus(Request $request){
+            $id = $request->input('id');
+            $newStatus = $request->input('newStatus');
+
+            try {
+                $appointment = Appointment::findOrFail($id);
+                $appointment->status = $newStatus;
+                $appointment->save();
+
+                return response()->json(['message' => 'Status updated successfully'], 200);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Error updating status'], 500);
+            }
+        }
 }

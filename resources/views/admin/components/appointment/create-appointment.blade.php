@@ -108,7 +108,9 @@
 
     document.getElementById("appointment_date").min = formattedCurrentDate;
     document.getElementById("appointment_date").max = formattedMaxDate;
-  //
+  
+  
+    //change Department
 $("#department").change(function() {
     let id = $(this).val();
 
@@ -191,7 +193,7 @@ $("#department").change(function() {
                   formData.append('phone', phone);
                   formData.append('appointment_date', appointment_date);
                   let res = await axios.post("/dashboard/upload-appointment",formData);
-                  console.log(res);
+                  
                   if(res.data.error){
                       Swal.fire(
                             'Message!',

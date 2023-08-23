@@ -42,6 +42,9 @@ class Branch extends Model
     public function wards(){
         return $this->hasMany(Ward::class);
     }
+    public function appointments(){
+        return $this->hasMany(Appointment::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -10,6 +10,7 @@
     {{-- page heading end --}}
 
    @include('admin.components.appointment.create-appointment')
+   @include('admin.components.appointment.list-appointment')
     
     
 
