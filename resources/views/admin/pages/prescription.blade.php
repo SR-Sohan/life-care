@@ -8,34 +8,22 @@
 
     <div class="prescription_wrap mt-3">
         <form  id="form">
+            <div class="mb-3">
+                <label for="user_id">User Id</label>
+                <input class="form-control" type="number" name="user_id" id="user_id">
+            </div>
             <div class="form_wrap border w-100 d-flex">
+               
                 <div class="test_wrap w-50 pe-3 ps-2 py-3">
                     <div class="form_heading d-flex align-items-center justify-content-between">
                         <h4>Add Test</h4>
                         <div class="page_add">
-                            <button data-bs-toggle="modal" data-bs-target="#testAddModal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+                            <a data-bs-toggle="modal" data-bs-target="#testAddModal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
                         </div>
                     </div>
     
                     <div id="test_content" class="mt-3">
-                        <ol>
-                            <li class="d-flex align-items-center justify-content-between mb-2">
-                                <h6>Xray-Chest</h6>
-                                <button class="btn btn-danger">Remove</button>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between mb-2">
-                                <h6>Xray-Chest</h6>
-                                <button class="btn btn-danger">Remove</button>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between mb-2">
-                                <h6>Xray-Chest</h6>
-                                <button class="btn btn-danger">Remove</button>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between mb-2">
-                                <h6>Xray-Chest</h6>
-                                <button class="btn btn-danger">Remove</button>
-                            </li>
-                           
+                        <ol id="test_list"> 
                         </ol>
                     </div>
                </div>
@@ -91,6 +79,14 @@
             </div>
         </form>
     </div>
-    
+
+    @include('admin.components.prescription.test-prescription')
+
+
+    <script>
+      $("#test_list").on("click","#removeTest",function(){
+        $(this).parent().remove();
+      })
+    </script>
     
 @endsection
