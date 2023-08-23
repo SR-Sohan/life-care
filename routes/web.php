@@ -114,6 +114,10 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
 
     // Prescription Routes
     Route::get("test-prescription",[PrescriptionController::class,"searchTest"]);
+    Route::get("medicine-prescription",[PrescriptionController::class,"searchMedicine"]);
+    Route::get("print-prescription/{id}",[PrescriptionController::class,"reportPrescription"]);
+    Route::post("create-prescription",[PrescriptionController::class,"createPrescription"]);
+
 
 
 

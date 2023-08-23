@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>Sl</th>
+                    <th>UHID</th>
                     <th>Name</th>
                     <th>Doctor</th>
                     <th>Date</th>

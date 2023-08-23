@@ -93,6 +93,7 @@ async function handleSubmit() {
                 res.data.appointments.forEach(function(item, index){
                     let newRow = `<tr>
                     <td>${index + 1}</td>
+                    <td>#${item.user.id}</td>
                     <td>${item.user.name}</td>
                     <td>${item.doctor.name}</td>
                     <td>${item.appointment_date}</td>

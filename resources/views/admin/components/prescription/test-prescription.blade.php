@@ -30,9 +30,9 @@
 
             let testList = $("#test_list");
 
-            var row = ` <li class="d-flex align-items-center justify-content-between mb-2">
+            var row = ` <li class="single_test d-flex align-items-center justify-content-between mb-2">
                                 <h6>${text}</h6>
-                                <a id="removeTest" class="btn btn-danger">Remove</a>
+                                <a id="removeTest" class="btn btn-danger text-white">Remove</a>
                             </li>`
 
                 testList.append(row);
