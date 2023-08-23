@@ -62,6 +62,19 @@
                     <option value="-1">Select Doctor</option>
                 </select>
             </div>
+           <div class="mb-3">
+            <label for="gender">Gender</label>
+            <select class="form-select" name="gender" id="gender">
+              <option value="-1">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+           </div>
+           <div class="mb-3">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" class="form-control">
+           </div>
            
           <div class="mb-3">
             <label for="appointmentDate">Select Appointment Date:</label>
@@ -153,8 +166,11 @@ $("#department").change(function() {
           let password = $("#password").val();
           let department_id = $("#department").val();
           let phone = $("#phone").val();
+          let gender = $("#gender").val();
+          let age = $("#age").val();
           let doctor_id = $("#doctor").val();
           let appointment_date = $("#appointment_date").val();
+     
 
           if($('input[name="patientType"]').val() === "new" && p_id == ""){
             if(username == ""){
@@ -179,6 +195,10 @@ $("#department").change(function() {
             alert("Please select Doctor")
           }else if(appointment_date == ""){
             alert("Please Select appointment Date")
+          }else if(gender == "-1"){
+            alert("Please Select Gender")
+          }else if(age == ''){
+            alert("Please Enter Age")
           }else{
 
 
@@ -191,6 +211,8 @@ $("#department").change(function() {
                   formData.append('department_id', department_id);
                   formData.append('doctor_id', doctor_id);
                   formData.append('phone', phone);
+                  formData.append('gender', gender);
+                  formData.append('age', age);
                   formData.append('appointment_date', appointment_date);
                   let res = await axios.post("/dashboard/upload-appointment",formData);
                   

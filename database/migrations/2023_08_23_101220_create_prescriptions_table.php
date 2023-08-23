@@ -11,24 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-            $table->integer("phone");
-            $table->enum("gender",["male","female","other"]);
-            $table->integer("age");
-            $table->date("appointment_date");
-            $table->enum("status",['pending',"complete","cancel"]);
+            $table->jsonb('medicine')->nullable();
+            $table->jsonb('test')->nullable();
+            $table->date('issue_date');     
             $table->timestamps();
             $table->softDeletes();
         });
@@ -39,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('prescriptions');
     }
 };

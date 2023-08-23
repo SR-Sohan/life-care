@@ -94,9 +94,7 @@ async function handleSubmit() {
                     let newRow = `<tr>
                     <td>${index + 1}</td>
                     <td>${item.user.name}</td>
-                    <td>${item.department.name}</td>
                     <td>${item.doctor.name}</td>
-                    <td>${item.branch.name}</td>
                     <td>${item.appointment_date}</td>
                     <td>${item.status}</td>
                 </tr>`;

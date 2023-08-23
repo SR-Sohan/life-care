@@ -12,9 +12,7 @@
                 <tr>
                     <th>Sl</th>
                     <th>Name</th>
-                    <th>Department</th>
                     <th>Doctor</th>
-                    <th>Branch</th>
                     <th>Date</th>
                     <th>Status</th>
                 </tr>

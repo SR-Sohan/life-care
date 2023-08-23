@@ -64,6 +64,8 @@ class AppointmentController extends Controller
                     "doctor_id" => $request->input("doctor_id"),
                     "branch_id" => $employee->branch_id,
                     "phone" => $request->input("phone"),
+                    "gender" => $request->input("gender"),
+                    "age" => $request->input("age"),
                     "appointment_date" => $request->input("appointment_date")
                 ]);
 
@@ -95,6 +97,8 @@ class AppointmentController extends Controller
                     "doctor_id" => $request->input("doctor_id"),
                     "branch_id" => $employee->branch_id,
                     "phone" => $request->input("phone"),
+                    "gender" => $request->input("gender"),
+                    "age" => $request->input("age"),
                     "appointment_date" => $request->input("appointment_date")
                 ]);
 

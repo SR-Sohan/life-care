@@ -17,7 +17,9 @@ class Appointment extends Model
         "doctor_id",
         "appointment_date",
         "phone",
-        "status"
+        "status",
+        "age",
+        "gender"
     ];
     protected $attributes = [
         'status' => 'pending',
