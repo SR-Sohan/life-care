@@ -15,4 +15,11 @@ class Bed extends Model
         "bed_number",
         "bed_status",
     ];
+
+    public function branch(){
+        return $this->belongsTo(Branch::class);
+    }
+    public function ward(){
+        return $this->belongsTo(Ward::class);
+    }
 }

@@ -10,6 +10,7 @@
     {{-- page heading end --}}
 
     @include('admin.components.bed.create-bed')
+    @include('admin.components.bed.list-bed')
    
  
     

@@ -42,6 +42,9 @@ class Branch extends Model
     public function wards(){
         return $this->hasMany(Ward::class);
     }
+    public function beds(){
+        return $this->hasMany(Bed::class);
+    }
     public function appointments(){
         return $this->hasMany(Appointment::class);
     }

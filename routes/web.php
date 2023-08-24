@@ -121,7 +121,9 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::post("create-prescription",[PrescriptionController::class,"createPrescription"]);
 
 
-
+    // Bed Routes
+    Route::post("create-bed",[BedController::class,"createBed"]);
+    Route::get("beds",[BedController::class,"index"]);
 
     // //Test Form Route
     // Route::get("test-Form", [TestFormController::class,"index"]);
