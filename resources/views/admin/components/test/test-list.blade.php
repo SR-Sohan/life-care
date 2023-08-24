@@ -28,10 +28,11 @@ async function loadData() {
     try {
 
         let res = await axios.get("/dashboard/tests");     
-        hideLoading(); 
-
+        hideLoading();
+        table.DataTable().destroy();
+        tableBody.empty();
         if (Array.isArray(res.data.data)) {
-            tableBody.empty(); 
+            
 
             res.data.data.forEach(function(item, index) {
                
@@ -55,7 +56,12 @@ async function loadData() {
         console.error(error);
     }
 
-    table.DataTable({
+    // table.DataTable({
+    //     lengthMenu: [15,30,50,100],
+    //     order: [[0,"asc"]]
+    // });
+
+    new DataTable("#table_content",{
         lengthMenu: [15,30,50,100],
         order: [[0,"asc"]]
     });

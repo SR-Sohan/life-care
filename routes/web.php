@@ -124,6 +124,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     // Bed Routes
     Route::post("create-bed",[BedController::class,"createBed"]);
     Route::get("beds",[BedController::class,"index"]);
+    // Route::get("bed-delete", [BedController::class,"delete"]);
 
     // //Test Form Route
     // Route::get("test-Form", [TestFormController::class,"index"]);

@@ -43,4 +43,26 @@ class BedController extends Controller
             return response()->json(["error" => true, "success" => "error","msg" => "Ward Not Found"]);
         }
     }
+
+
+
+    // public function delete(Request $request){
+        
+    //     $id = $request->input("id");
+    //     $bed = Bed::find($id);
+
+    //     if($bed){
+    //         if($bed->delete()){
+    //             return response()->json(["error" => false, "success" => "success", "msg" => "Bed Delete Successfuly"], 201);
+    //         }else{
+    //             return response()->json(["error" => true, "success" => "error", "msg" => "Bed Can't Delete"]);
+    //         }
+    //     }else{
+    //         return response()->json(["error" => true, "success" => "error", "msg" => "Bed Not Found!"]);
+    //     }
+    // }
+
+
+
+    
 }
