@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prescriptions', function (Blueprint $table) {
+        Schema::create('admits', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
@@ -22,12 +21,15 @@ return new class extends Migration
 
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+
+            $table->unsignedBigInteger('ward_id');
+            $table->foreign('ward_id')->references('id')->on('wards')->onDelete('cascade');
+
+            $table->unsignedBigInteger('bed_id')->unique();
+            $table->foreign('bed_id')->references('id')->on('beds')->onDelete('cascade');
             
-            $table->jsonb('medicine')->nullable();
-            $table->jsonb('test')->nullable();
-            $table->date('issue_date');     
+            $table->date('discharge')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -36,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prescriptions');
+        Schema::dropIfExists('admits');
     }
 };
