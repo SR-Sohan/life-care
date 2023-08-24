@@ -1,7 +1,7 @@
  <!-- Menu -->
  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo ">
-      <a href="{{url("/admin")}}" class="app-brand-link">
+      <a href="{{url("/dashboard")}}" class="app-brand-link">
         <img  src="{{asset("assets/client/img/aa.png")}}" alt="">
       </a>
 
@@ -108,9 +108,9 @@
       <!-- Menu Item -->
       @if(auth()->user()?->role === 'cashier')
       <li class="menu-item">
-        <a href="{{url("dashboard/test-form")}}" class="menu-link">
+        <a href="{{url("dashboard/money-receipt")}}" class="menu-link">
           <i class="fa-regular fa-rectangle-list menu-icon"></i>
-          <div data-i18n="Test Form">Test Form</div>
+          <div data-i18n="Money Receipt">Money Receipt</div>
         </a>
       </li>
       <li class="menu-item">

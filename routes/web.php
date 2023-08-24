@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MedicineController;
-
+use App\Http\Controllers\Admin\MoneyReceiptController;
 use App\Http\Controllers\Admin\PrintAppointmentController;
 
 use App\Http\Controllers\Admin\PrescriptionController;
@@ -53,7 +53,7 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     Route::get("employee",[EmployeeController::class,"page"]);
     Route::get("appointments",[AdminAppointmentController::class,"page"]);
     Route::get("printappointments",[PrintAppointmentController::class,"page"]);
-    Route::get("test-form", [TestFormController::class,"page"]);
+    Route::get("money-receipt", [MoneyReceiptController::class,"page"]);
     Route::get("admit-patient", [AdmitPatientController::class,"page"]);
     Route::get("prescription", [PrescriptionController::class,"page"]);
     Route::get("bed", [BedController::class,"page"]);
