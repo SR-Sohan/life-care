@@ -19,7 +19,10 @@ class DoctorController extends Controller
     }
 
     public function index(Request $request){
-        $doctors = Doctor::with(["branch","department"])->get(); 
+        $user =  auth()->user();
+        $branch = Branch::where("user_id",$user->id)->first();
+
+        $doctors = Doctor::with(["branch","department"])->where("branch_id","=",$branch->id)->get(); 
         
         return response()->json($doctors);
     }

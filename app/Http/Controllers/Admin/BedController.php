@@ -4,20 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Bed;
+use App\Models\Admin\Branch;
 use App\Models\Admin\Ward;
 use Illuminate\Http\Request;
 
 class BedController extends Controller
 {
     public function page(){
-
-        $ward = Ward::get();
+        $user =  auth()->user();
+        $branch = Branch::where("user_id",$user->id)->first();
+        $ward = Ward::where("branch_id","=",$branch->id)->get();
         return view("admin.pages.bed",["ward" => $ward]);
     }
 
 
     public function index(){
-        $bed = Bed::with(['branch',"ward"])->get();
+        $user =  auth()->user();
+        $branch = Branch::where("user_id",$user->id)->first();
+
+        $bed = Bed::with(['branch',"ward"])->where("branch_id","=",$branch->id)->get();
         return response()->json($bed);
     }
 

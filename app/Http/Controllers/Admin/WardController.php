@@ -17,7 +17,10 @@ class WardController extends Controller
     }
 
     public function index(){
-        $ward = Ward::with("branch")->get(); 
+        $user =  auth()->user();
+        $branch = Branch::where("user_id",$user->id)->first();
+
+        $ward = Ward::with("branch")->where("branch_id","=",$branch->id)->get(); 
 
         return response()->json($ward);
     }
