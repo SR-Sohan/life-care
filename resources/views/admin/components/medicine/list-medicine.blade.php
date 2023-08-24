@@ -31,8 +31,11 @@ async function loadData(){
     showLoading()
     let res = await axios.get("/dashboard/medicines");
     hideLoading();
+
+    table.DataTable().destroy();
+    tableBody.empty();
+
     if(Array.isArray(res.data)){
-        tableBody.empty();
 
         res.data.forEach((item,index) => {
             let newRow = `<tr>
@@ -52,7 +55,7 @@ async function loadData(){
         alert("Data Array Not Found");
     }
 
-    table.DataTable({
+    new DataTable("#table_content",{
         lengthMenu: [15,30,50,100],
         order: [[0,"asc"]]
     });

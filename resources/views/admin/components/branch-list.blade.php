@@ -37,8 +37,10 @@ async function loadData() {
         let res = await axios.get("/dashboard/branches");     
         hideLoading(); 
 
+        table.DataTable().destroy();
+        tableBody.empty();
+
         if (Array.isArray(res.data.data)) {
-            tableBody.empty(); 
 
             res.data.data.forEach(function(item, index) {
                
@@ -65,7 +67,7 @@ async function loadData() {
         console.error(error);
     }
 
-    table.DataTable({
+    new DataTable("#table_content",{
         lengthMenu: [15,30,50,100],
         order: [[0,"asc"]]
     });
