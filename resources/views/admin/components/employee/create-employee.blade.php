@@ -70,7 +70,7 @@
 
         function resetForm(){           
             $("#form")[0].reset();
-            $("#imgPreview").attr("src","{{asset("assets/admin/img/default.jpg")}}")
+            $("#preview").attr("src","{{asset("assets/admin/img/default.jpg")}}")
         }
 
         async function handleSubmit(){
