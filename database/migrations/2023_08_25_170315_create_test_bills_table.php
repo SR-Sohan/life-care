@@ -20,7 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
 
-            $table->jsonb('test');
+            $table->unsignedBigInteger('test_id');
+            $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
+
             $table->decimal('discount', 10, 2);
             $table->decimal('total', 10, 2);
             $table->decimal('due', 10, 2);
