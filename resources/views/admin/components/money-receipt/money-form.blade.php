@@ -34,7 +34,7 @@
             </form>
         </div>
         <div class="col-md-3 bg-white">
-
+            <h3 class="text-center">Bills</h3>
         </div>
     </div>
 </div>
@@ -63,29 +63,28 @@
     })
 
     // Patient autocomplete 
-    $("#patient_id").autocomplete({
-        
-        source: function(request, response) {
-            axios.get("/dashboard/patient-id", {
-                    params: {
-                        term: request.term
-                    }
-                }).then(function(res) {
-                    var formattedData = res.data.map(function(item) {
-                    return {
-                        label:  item.id ,
-                        value: item.id,
-                        name: item.name
-                    };
-                    });
-                    response(formattedData);
+    $("#patient_id").autocomplete({    
+    source: function(request, response) {
+        axios.get("/dashboard/patient-id", {
+                params: {
+                    term: request.term
+                }
+            }).then(function(res) {
+                var formattedData = res.data.map(function(item) {
+                return {
+                    label:  item.id ,
+                    value: item.id,
+                    name: item.name
+                };
                 });
-            },
-            minLength: 1,
-            select: function (event, ui) {
-                    $("#patient_name").val(ui.item.name)
-            },
-        });
+                response(formattedData);
+            });
+        },
+        minLength: 1,
+        select: function (event, ui) {
+                $("#patient_name").val(ui.item.name)
+        },
+    });
 
     // Serail Number
     function updateSerialNumbers() {
@@ -142,4 +141,7 @@
             });
         
     })
+
+
+
 </script>
