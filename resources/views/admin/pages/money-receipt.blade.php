@@ -6,7 +6,7 @@
     </div>
     {{-- page heading end --}}
 
-    @include('admin.components.test-form.test-form')
+    @include('admin.components.money-receipt.money-form')
     
     
 @endsection

@@ -124,6 +124,11 @@ Route::prefix("/dashboard")->middleware(['auth', 'verified',"role"])->group(func
     // Bed Routes
     Route::post("create-bed",[BedController::class,"createBed"]);
     Route::get("beds",[BedController::class,"index"]);
+
+    //Money Receipt
+    Route::get("test-name",[MoneyReceiptController::class,"getTestName"]);
+    Route::get("patient-id",[MoneyReceiptController::class,"getPatient"]);
+    Route::get("doctor",[MoneyReceiptController::class,"getDoctor"]);
     // Route::get("bed-delete", [BedController::class,"delete"]);
 
     // //Test Form Route
